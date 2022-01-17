@@ -1,0 +1,14 @@
+.c-nav-bar {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  &-button{
+    width: 25px;
+  }
+  &-avatar {
+    width: 37px;
+  }
+}

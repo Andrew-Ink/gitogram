@@ -1,0 +1,26 @@
+.user-avatar {
+  border: solid 2px #A6328D;
+  border-radius: 50%;
+  width: 92px;
+  height: 92px;
+  margin-bottom: 6px;
+}
+
+.avatar {
+  width: 80px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: solid 4px transparent;
+}
+
+.user-avatar{
+  &:hover {
+      border: solid 2px transparent;
+  }
+}
+
+.usermame {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
