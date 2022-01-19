@@ -5,6 +5,7 @@
   background-color: #FAFAFA;
   box-shadow: 0px 0.33px 0px 0px #3C3C434A;
   padding-top: 48px;
+  margin-bottom: 32px;
 }
 
 .logo {
@@ -16,4 +17,13 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 37px;
+}
+
+.conteiner {
+  width: 979px;
+  margin: 0 auto;
+}
+
+.posts__item {
+  margin-bottom: 24px;
 }
