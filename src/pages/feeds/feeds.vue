@@ -37,6 +37,7 @@ import users from './users.json'
 import { navBar } from '../../components/navBar'
 import { post } from '../../components/post'
 import { card } from '../../components/card'
+import * as api from '../../components/api'
 
 export default {
   name: 'feeds',
@@ -50,7 +51,18 @@ export default {
   },
   data () {
     return {
-      users
+      users,
+      items: []
+    }
+  },
+  methods: {},
+  async created () {
+    try {
+      const { data } = await api.trandings.getTrendings()
+      this.items = data.items
+      console.log(this.items)
+    } catch (error) {
+      console.log(error)
     }
   }
 }

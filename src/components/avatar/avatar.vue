@@ -1,10 +1,19 @@
 <template>
-     <img class="avatar-img" alt="avatar" />
+  <div class="avatar">
+    <img :src="avatar" class="avatar__img" alt="avatar" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'avatar'
+  name: 'avatar',
+  props: {
+    avatar: {
+      type: String,
+      required: true,
+      default: 'https://picsum.photos/100/100'
+    }
+  }
 }
 </script>
 
