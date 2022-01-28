@@ -1,13 +1,16 @@
-import avatar from './avatar.vue'
+import stats from './stats.vue'
 
 export default {
-  title: 'avatar',
+  title: 'stats',
   component: {
-    avatar
+    stats
   },
-  argTypes: {
-    avatar: {
-      type: 'text'
+  argsTypes: {
+    stars: {
+      type: 'number'
+    },
+    forks: {
+      type: 'number'
     }
   }
 }
@@ -15,7 +18,7 @@ export default {
 const template = (args) => ({
   props: Object.keys(args),
   components: {
-    avatar
+    stats
   },
   data () {
     return {
@@ -23,12 +26,13 @@ const template = (args) => ({
     }
   },
   template: `
-  <avatar :avatar='args.avatar'></avatar>
+  <stats :stars='args.stars' :forks='args.forks' />
   `
 })
 
 export const Default = template.bind(template)
 
 Default.args = {
-  avatar: 'https://picsum.photos/100/100'
+  stars: '321',
+  forks: '25'
 }

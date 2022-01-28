@@ -1,9 +1,17 @@
-import button from './button.vue'
+import slide from './slide.vue'
+import user from '../user/user.vue'
+import progres from '../progres/progres.vue'
+import xbutton from '../button/button.vue'
 
 export default {
-  title: 'button',
+  title: 'slide',
   component: {
-    button
+    slide
+  },
+  subcomponents: {
+    user,
+    progres,
+    xbutton
   },
   argTypes: {
     hoverText: {
@@ -18,7 +26,10 @@ export default {
 const template = (args) => ({
   props: Object.keys(args),
   components: {
-    xButton: button
+    slide,
+    user,
+    progres,
+    xbutton
   },
   data () {
     return {
@@ -26,7 +37,7 @@ const template = (args) => ({
     }
   },
   template: `
-    <x-button :hoverText='args.hoverText' :buttonText='args.buttonText' />
+    <slide :hoverText='args.hoverText' :buttonText='args.buttonText' />
   `
 })
 

@@ -1,3 +1,10 @@
+.c-story-user-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .user-avatar {
   border: solid 2px #A6328D;
   border-radius: 50%;
@@ -19,8 +26,9 @@
   }
 }
 
-.usermame {
+.user-mame {
   text-align: center;
   font-size: 12px;
   line-height: 1.5;
+  word-wrap: break-word;
 }

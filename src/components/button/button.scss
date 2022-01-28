@@ -1,6 +1,10 @@
-.button {
+.c-button {
   width: 270px;
   height: 44px;
+}
+.button {
+  width: inherit;
+  height: inherit;
   border-radius: 5px;
   background-color: #31AE54;
   color: #fff;

@@ -1,13 +1,17 @@
-import avatar from './avatar.vue'
+import icon from './icon.vue'
+import * as icons from './variants'
 
 export default {
-  title: 'avatar',
+  title: 'icon',
   component: {
-    avatar
+    icon
   },
   argTypes: {
-    avatar: {
-      type: 'text'
+    name: {
+      control: {
+        type: 'select'
+      },
+      options: Object.keys({ ...icons })
     }
   }
 }
@@ -15,7 +19,7 @@ export default {
 const template = (args) => ({
   props: Object.keys(args),
   components: {
-    avatar
+    icon
   },
   data () {
     return {
@@ -23,12 +27,12 @@ const template = (args) => ({
     }
   },
   template: `
-  <avatar :avatar='args.avatar'></avatar>
+  <icon :name='args.name' width="55px" />
   `
 })
 
 export const Default = template.bind(template)
 
 Default.args = {
-  avatar: 'https://picsum.photos/100/100'
+  name: 'home'
 }

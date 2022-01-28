@@ -9,8 +9,8 @@
       </template>
       <template #content>
         <ul class="stories">
-          <li class="stories__item" v-for="user in users" :key="user.id">
-            <storyUserItem :avatar="user.avatar" :username="user.name" />
+          <li class="stories__item" v-for="item in items" :key="item.id">
+            <storyUserItem :avatar="item.owner.avatar_url" :username="item.name" />
           </li>
         </ul>
       </template>
@@ -33,7 +33,6 @@
 import { topline } from '../../components/topline'
 import { logo } from '../../components/logo'
 import { storyUserItem } from '../../components/storyUserItem'
-import users from './users.json'
 import { navBar } from '../../components/navBar'
 import { post } from '../../components/post'
 import { card } from '../../components/card'
@@ -51,7 +50,6 @@ export default {
   },
   data () {
     return {
-      users,
       items: []
     }
   },

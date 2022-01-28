@@ -1,9 +1,9 @@
 <template>
   <div class="c-story-user-item">
     <button class="user-avatar">
-     <avatar :src="avatar" class="avatar" />
+     <avatar :avatar="avatar" class="avatar" />
     </button>
-    <div class="usermame">
+    <div class="user-mame">
       {{ username }}
     </div>
   </div>

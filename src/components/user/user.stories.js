@@ -1,12 +1,19 @@
-import avatar from './avatar.vue'
+import user from './user.vue'
+import avatar from '../avatar/avatar.vue'
 
 export default {
-  title: 'avatar',
+  title: 'user',
   component: {
+    user
+  },
+  subcomponents: {
     avatar
   },
   argTypes: {
     avatar: {
+      type: 'text'
+    },
+    userName: {
       type: 'text'
     }
   }
@@ -15,6 +22,7 @@ export default {
 const template = (args) => ({
   props: Object.keys(args),
   components: {
+    user,
     avatar
   },
   data () {
@@ -23,12 +31,13 @@ const template = (args) => ({
     }
   },
   template: `
-  <avatar :avatar='args.avatar'></avatar>
+  <user :avatar="args.avatar"  :userName="args.userName" />
   `
 })
 
 export const Default = template.bind(template)
 
 Default.args = {
-  avatar: 'https://picsum.photos/100/100'
+  avatar: 'https://picsum.photos/100/100',
+  userName: 'John'
 }
