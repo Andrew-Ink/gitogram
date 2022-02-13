@@ -9,8 +9,8 @@
       </template>
       <template #content>
         <ul class="stories">
-          <li class="stories__item" v-for="item in items" :key="item.id">
-            <storyUserItem :avatar="item.owner.avatar_url" :username="item.name" />
+          <li class="stories__item" v-for="trending in trendings" :key="trending.id">
+              <storyUserItem :data="getStoryData(trending)" />
           </li>
         </ul>
       </template>
@@ -36,7 +36,7 @@ import { storyUserItem } from '../../components/storyUserItem'
 import { navBar } from '../../components/navBar'
 import { post } from '../../components/post'
 import { card } from '../../components/card'
-import * as api from '../../components/api'
+import { mapState } from 'vuex'
 
 export default {
   name: 'feeds',
@@ -48,20 +48,22 @@ export default {
     post,
     card
   },
-  data () {
-    return {
-      items: []
+  computed: {
+    ...mapState({
+      trendings: (state) => state.trendings.data
+    })
+  },
+  methods: {
+    getStoryData (obj) {
+      return {
+        id: obj.id,
+        userAvatar: obj.owner?.avatar_url,
+        userName: obj.name
+      }
     }
   },
-  methods: {},
   async created () {
-    try {
-      const { data } = await api.trandings.getTrendings()
-      this.items = data.items
-      console.log(this.items)
-    } catch (error) {
-      console.log(error)
-    }
+    await this.$store.dispatch('fechTrendings')
   }
 }
 </script>

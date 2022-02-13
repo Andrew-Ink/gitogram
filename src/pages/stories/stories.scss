@@ -1,0 +1,29 @@
+.c-stories {
+  background-color: #292929;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.x-conteiner {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  min-height: 84px;
+  padding-top: 50px;
+  margin-bottom: 126px;
+}
+
+.logo {
+  color: #fff;
+  width: 174px;
+}
+
+.close-btn {
+  color: #fff;
+  height: 23px;
+  width: 23px;
+}

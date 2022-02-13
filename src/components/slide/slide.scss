@@ -1,12 +1,15 @@
 .slide {
-  width: 375px;
+  position: relative;
+  width: 376px;
   height: 667px;
   border-radius: 8px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+  transform: scale(0.8);
+  transition: .4s;
+
   &__header {
     height: 67px;
     width: 100%;
@@ -16,14 +19,26 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  
+
   &__content {
     flex: 1;
     line-height: 1.6;
     background: rgba(128, 128, 128, 0.05);
     border-top: 1px solid rgba(128, 128, 128, 0.1);
     border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+    height: 458px;
+    overflow-y: scroll;
 
+    &::-webkit-scrollbar { /* скроллбар */
+      width: 5px;
+      height: 4px;
+      background-color: #FFFFFF;
+    }
+  
+    &::-webkit-scrollbar-thumb { /* ползунок */
+      border-radius: 10px;
+      background-color: #AFAFAF;
+    }
   }
 
   &__img-wrap {
@@ -36,10 +51,12 @@
   }
 
   &__text {
+    height: 100%;
     padding: 0 27px 6px 18px;
     display: flex;
     flex-direction: column;
     color: #404040;
+    overflow: hidden;
 
     &-title {
       font-weight: 700;
@@ -49,7 +66,7 @@
   &__footer {
     height: 105px;
     width: 100%;
-    
+
     &-content {
       height: inherit;
       width: 100%;
@@ -58,4 +75,54 @@
       align-items: center;
     }
   }
+}
+
+.active {
+  transform: scale(1);
+  z-index: 10;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.content-text {
+  padding: 18px;
+}
+
+.btn {
+  position: absolute;
+  display: block;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #fff;
+
+  &-prev {
+    top: 50%;
+    left: -57px;
+  }
+  &-next {
+    top: 50%;
+    right: -57px;
+  }
+  &:hover {
+    color:#31AE54;
+  }
+}
+
+.icon {
+  display: block;
+  height: 16px;
+  width: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

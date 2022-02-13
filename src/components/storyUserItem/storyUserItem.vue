@@ -1,10 +1,10 @@
 <template>
   <div class="c-story-user-item">
-    <button class="user-avatar">
-     <avatar :avatar="avatar" class="avatar" />
+    <button class="user-avatar" @click="goToStories">
+     <avatar :avatar="data.userAvatar" class="avatar" />
     </button>
-    <div class="user-mame">
-      {{ username }}
+    <div class="user-name">
+      {{ data.userName }}
     </div>
   </div>
 </template>
@@ -17,13 +17,15 @@ export default {
     avatar
   },
   props: {
-    avatar: {
-      type: String,
-      required: true
-    },
-    username: {
-      type: String,
-      required: true
+    data: {
+      type: Object,
+      required: true,
+      default: () => ({})
+    }
+  },
+  methods: {
+    goToStories () {
+      this.$router.push(`/stories/${this.data.id}`)
     }
   }
 }

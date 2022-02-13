@@ -1,6 +1,5 @@
 import { makeRequests } from '../requests'
-
-const addStartingZero = value => value < 10 ? `0${value}` : value
+import { addStartingZero } from '../../helpers/helpers'
 
 export const getTrendings = (lang = 'javascript') => {
   const params = new URLSearchParams()

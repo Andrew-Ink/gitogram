@@ -1,0 +1,38 @@
+.placeholder {
+  &__img {
+    background-color: #DEDEDE;
+    border-radius: 4px;
+    height: 170px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    height: 16px;
+    margin-bottom: 12px;
+    background-color: #DEDEDE;
+    border-radius: 4px;
+
+
+    &:nth-child(1) {
+      width: 66%;
+    }
+
+    &:nth-child(2) {
+      width: 80%;
+    }
+
+    &:nth-child(3) {
+      width: 52%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.placeholder__list {
+  margin-bottom: 18px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
