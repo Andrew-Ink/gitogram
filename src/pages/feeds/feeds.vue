@@ -5,12 +5,16 @@
         <div class="logo">
           <logo />
         </div>
-        <navBar />
+        <navBar :user=data.avatar_url />
       </template>
       <template #content>
         <ul class="stories">
-          <li class="stories__item" v-for="trending in trendings" :key="trending.id">
-              <storyUserItem :data="getStoryData(trending)" />
+          <li
+            class="stories__item"
+            v-for="trending in trendings"
+            :key="trending.id"
+          >
+            <storyUserItem :data="getStoryData(trending)" />
           </li>
         </ul>
       </template>
@@ -62,8 +66,24 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      data: ''
+    }
+  },
   async created () {
     await this.$store.dispatch('fechTrendings')
+    try {
+      const response = await fetch('https://api.github.com/user', {
+        headers: {
+          Authorization: `token ${localStorage.getItem('token')}`
+        }
+      })
+
+      this.data = await response.json()
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 </script>

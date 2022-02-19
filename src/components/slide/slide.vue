@@ -8,7 +8,9 @@
     </div>
     <div class="slide__content">
       <div class="loader" v-if="loading">
-        <spinner />
+        <div class="spinner-wrap">
+          <spinner />
+        </div>
       </div>
 
       <div class="content-text" v-else>
@@ -24,7 +26,12 @@
     </div>
     <div class="slide__footer">
       <div class="slide__footer-content">
-        <xbutton hoverText="unfollow" buttonText="follow" />
+        <xbutton
+        hoverText="unfollow"
+        :buttonText="data.following.status ? 'unfollow' : 'follow'"
+        @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', data.id)"
+        :loading="data.following.loading"
+        :theme="data.following.status ? 'grey' : 'green'" />
       </div>
       <template v-if="active" >
         <button v-if="btnsShow.includes('next')" class="btn btn-next" @click="$emit('onNextSlide')">
@@ -60,7 +67,7 @@ export default {
     placeholder,
     Icon
   },
-  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
+  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish', 'onFollow'],
   props: {
     hoverText: {
       type: String

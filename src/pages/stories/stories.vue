@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     goToFeeds () {
-      this.$router.push('/')
+      this.$router.push('/feeds')
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/">
+  <router-link to="/feeds">
     <icon name="logo"></icon>
   </router-link>
 </template>

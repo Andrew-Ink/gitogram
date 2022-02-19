@@ -4,7 +4,7 @@
       <icon name="home" />
     </button>
     <button class="icon-button icon-avatar">
-      <avatar :src=user class="avatar" />
+      <avatar :avatar=user class="avatar" />
     </button>
     <button class="icon-button">
       <icon name="exit" />

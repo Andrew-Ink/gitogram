@@ -2,7 +2,6 @@
   <div class="c-slider">
     <div class="x-conteiner">
       <ul class="slider__list" ref="slider">
-        <!-- {{ $route.params.id }} -->
         <li
           class="slider__item"
           v-for="(trending, ndx) in trendings"
@@ -17,6 +16,7 @@
           @onNextSlide="handleSlide(ndx + 1)"
           @onPrevSlide="handleSlide(ndx - 1)"
           @onProgressFinish="handleSlide(ndx + 1)"
+          @onFollow="starRepo"
           />
         </li>
       </ul>
@@ -64,7 +64,8 @@ export default {
         id: obj.id,
         userAvatar: obj.owner?.avatar_url,
         userName: obj.owner?.login,
-        content: obj.readme
+        content: obj.readme,
+        following: obj.following
       }
     },
     async fetchReadmeForActiveSlide () {
@@ -78,7 +79,7 @@ export default {
       try {
         await this.fetchReadmeForActiveSlide()
       } catch (e) {
-        console.error(e)
+        console.log(e)
         throw e
       } finally {
         this.loading = false
@@ -98,6 +99,9 @@ export default {
     async handleSlide (slideNdx) {
       this.moveSlider(slideNdx)
       await this.loadReadme()
+    },
+    async starRepo (id) {
+      await this.$store.dispatch('starRepo', id)
     }
   },
   async created () {
